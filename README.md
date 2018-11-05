@@ -45,7 +45,7 @@ int valeur = 42;
  Un booléen a deux valeurs possibles : vraie(true) et fausse(false).
 
 ```java
-bool b = true
+bool b = true;
 ```
 
 
@@ -55,15 +55,15 @@ bool b = true
 ### Les conditions
 - la plus simple
 ```java
-if(condition) {}
-else {}
+if(condition) {;}
+else {;}
 ```
 - un peu plus complexe
 ```java
-if(condition) {}
-else if(condition) {}
-else if(condition) {}
-else {}
+if(condition) {;}
+else if(condition) {;}
+else if(condition) {;}
+else {;}
 ```
 
 ### La boucle do while. 
@@ -71,7 +71,7 @@ else {}
 ```java
 do{
 Instructions;}
-while(Conditions)
+while(Conditions);
 ```
 
  Littéralement "faire une action tant que la condition de fin n est pas vérifiée" 
