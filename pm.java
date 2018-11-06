@@ -13,6 +13,26 @@ public class pm{
     est finie et le score.
     Sinon afficher une indication ("le nombre doit etre superieur/inferieur")
     */
+        do {
+             System.out.println("saisir un nombre");
+            saisie = sc.nextInt();
+
+            if (saisie<nombre){
+                System.out.println("trop petit");
+                coups++;
+            }
+            else {
+                if  (saisie>nombre){
+                System.out.println("trop grand");
+                coups++;
+            }
+                else {
+                    System.out.println("bravo, en " + coups + " coups ");
+                }
+            }
+           
+        }
+ while(saisie != nombre);
 
     }
  
