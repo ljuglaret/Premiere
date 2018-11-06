@@ -1,8 +1,7 @@
 # Le but de cette séance 
-  - Comprendre les résultats des tests contenus dans le fichier premiersTests.  
-  - Créer un jeu "plus moins".
- 
-   - Le principe : l utilisateur doit deviner un entier choisit au préalable.
+ - Comprendre les résultats des tests contenus dans le fichier premiersTests.  
+ - Créer un jeu "plus moins".
+    - Le principe : l utilisateur doit deviner un entier choisit au préalable.
  
 ---
 # Cahier des charges
