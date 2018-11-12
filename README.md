@@ -13,7 +13,7 @@
 ---
 #  Ce qui est disponible :
 
-<a href="https://github.com/ljuglaret/Premiere/blob/master/pm.java" >projet jeu plus moins</a>
+<a href="https://repl.it/@ljuglaret/GloomyAuthenticProcessor" >projet jeu plus moins</a>
 
  Il faut compléter le code en suivant les instructions indiquées en commentaires
 
@@ -26,9 +26,7 @@
    - type entier et booléen 
    - instruction conditionnelle
    - boucle do while
-----
-### <a href="https://www.onlinegdb.com/" >compilateur java en ligne</a>
-----
+
 ### Déclaration et affectation pour un entier 
 
 ```java
