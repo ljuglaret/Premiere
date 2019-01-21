@@ -1,3 +1,5 @@
+-- Pour avoir un apercu : https://github.com/ljuglaret/Premiere/blob/gh-pages/TableauxSansDoublons.html
+
 module Tableaux exposing (..)
 
 import Browser
