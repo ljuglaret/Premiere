@@ -4,24 +4,13 @@
 class tableaux {
 
     public static int presenceEntier (int[] t, int n) {
-        int cpt= 0 ;
-        for (int i = 0 ; i < t.length; i++){
-            if (n == t[i]){
-                cpt++;
-            }
-        }
-        return cpt;
+        // Compléter pour retourner le nombre de fois oùl entier n est présent dans le tableau t
     }
     
 
     public static int presenceEntier2 (int[] t, int n) {
-        int cpt= 0 ;
-        for (int x  : t ){
-            if (x == n){
-                cpt++;
-            }
-        }
-        return cpt;
+      // Pareil mais avec une syntaxe différente
+      // => for (int x  : t )
     }
 
     public static boolean existeDoublons (int[] t ){
@@ -40,15 +29,9 @@ class tableaux {
    
 // On peut aussi utiliser des tableaux a deux dimensions (comme une grille de jeux)
 
-//  Cette fonction compte le nombre d elements du tableau pair.
     public static int parite (int[][] t){
-        int cpt = 0;
-        for (int i = 0; i<t.length; i++) {
-            for (int j = 0 ; j < t[i].length ; j++) {
-                if (t[i][j]%2 == 0) {cpt++;}
-            }
-        }
-        return cpt;
+      //  Cette fonction doit compter le nombre d élements pairs du tableau t.
+
     }
 
 /*
@@ -58,7 +41,7 @@ C est votre tour :
 1) Dans un tableau d entiers de dimension 1 afficher le maximum et son indice.
 2) Dans un tableau d entiers de dimension 1 retourner la moyenne.
 3) Dans un tableau d entiers de dimensions 2 avec autant de lignes et de colonnes retourner
-    ce tableau mais en inversant lignes et colonnes.
+    ce tableau mais en inversant lignes etécolonnes.
     Exemple
          1 2 5        1 3 7
          3 4 6    =>  2 4 8
