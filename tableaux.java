@@ -2,9 +2,26 @@
 
 
 class tableaux {
+    
+    //Exemple1 : afficher tous les élements d un tableau
+    
+    public static void aff(int[] t){
+        for(int e : t){
+            System.out.print(e+" ");
+        }
+    }
+    
+    // Pareil : 
+    
+    public static void aff(int[] t){
+        for(int i = 0 ; i<t.length;i++){
+            System.out.print(t[i]+" ");
+        }
+    }
+
 
     public static int presenceEntier (int[] t, int n) {
-        // Compléter pour retourner le nombre de fois oùl entier n est présent dans le tableau t
+        // Compléter pour retourner le nombre de fois où l entier n est présent dans le tableau t
     }
     
 
@@ -27,7 +44,7 @@ class tableaux {
 
 
    
-// On peut aussi utiliser des tableaux a deux dimensions (comme une grille de jeux)
+// On peut aussi utiliser des tableaux à deux dimensions (comme une grille de jeux)
 
     public static int parite (int[][] t){
       //  Cette fonction doit compter le nombre d élements pairs du tableau t.
@@ -49,6 +66,9 @@ C est votre tour :
 
 4) Dans un tableau d entiers  de dimension 2 afficher la somme des lignes et celles des colonne.
     (La question 3 peut servir)
+
+
+5) Une fonction pour afficher une tableau  à deux dimensions.
 
 */
 
