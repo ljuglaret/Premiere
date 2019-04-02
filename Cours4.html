@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cours 4  </title></head>
+<body><textarea theme="Journal">
+  
+# Random  
+
+## Utilisation 
+
+Pour utiliser des fonctions genrant des valeurs aléatoires,   
+nous avons besoin d importer la bibliothèque Random
+
+```java
+import java.util.Random;
+
+```
+
+Ensuite, pour générer une valeur aléatoire comprise dans l intervalle [a,b] : 
+```java
+  Random random = new Random();
+  int r = random.nextInt(b) + a;
+``` 
+
+---
+
+## Exercice 1
+
+Le but est d afficher un tableau de caracteres aléatoires   
+Par exemple      
+)       (       ~             
+~       _       ~          
+)       _       )   
+
+        
+
+```java
+
+public class dessinAlea {
+public static char randomChar(){
+    // Completer 
+}
+
+public static void dessin(){
+
+    for (int i = 0  ; i <=9 ; i ++) {
+        for (int j = 0 ; j <=9 ; j ++) {
+            System.out.print(randomChar());
+            System.out.print("\t");
+        }
+        System.out.println(" ");
+    }
+
+}
+
+public static void main(String[] args){
+    dessin();
+    }
+}
+
+```    
+
+## Exercice 2 
+
+Cet exercice demande une nouvelle notion : Les tableaux.   
+
+Avant de commencer il faut
+comprendre et faire les exercices de  <a href = https://github.com/ljuglaret/Premiere/blob/master/tableaux.java> ce fichier </a> 
+et comprendre <a href = https://github.com/ljuglaret/Premiere/blob/gh-pages/Tableaux.elm> ce code </a> 
+
+
+Objectif de l exercice :
+Il s agit d un lancer simultané de deux dés (6 faces),  
+l objectif est de compléter le code pour afficher la probabilite d obtenir deux dés ayant la même face   
+(1,1) (2,2)...
+
+```java
+import java.lang.Math;
+import java.util.Random;
+
+public class desAlea {
+
+    public static int[] fct (){
+        // Cette fonction simule le lancers de deux dés et renvoie un tableau de deux valeurs
+        // Dans lequel chaque cellule contient une face.
+    }
+
+    public static int[][] plusieursLancers (int nbLancers) {
+    //On instancie un tableau dont le nombre de lignes correspond au nombre de lancers
+    // et avec deux colonnes.
+        int tab[][] = new int[nbLancers][2];
+        
+        //On utilise la fonction precedente pour remplir le tableau
+        //Chaque ligne correspond a un lancer. Dans la premiere colonne
+        //on trouve la valeur du premier dé,
+        // dans la seconde colonne on trouve la valeur du second dé.
+        
+        return tab;
+    }
+
+    public static void lire (int t[][]){
+    //Compléter
+    }
+
+public static boolean ds(int[]t){
+   //retourne vrai si la première cellule du tableau est égale a la seconde 
+}
+
+public static int doublePaires (int[][] t){
+    int n = 0;
+    for (int[] x : t) {
+        if (ds (x)){
+            n++;
+            }
+        }
+    return n;
+    }
+
+
+public static void main(String[] args){
+    int n = 100;
+   int [][] y = plusieursLancers(n);
+  lire(y);
+  System.out.println(doublePaires(y)*100/n + "%");
+  
+}
+
+}
+```
+
+## Exercice 3 
+Sur le même principe que précédemment mais avec trois dés :   
+Indiquer la probabilité d obtenir : face1 + face2 = face3
+
+</textarea>
+        <script type="text/javascript" src="//lbesson.bitbucket.io/md/strapdown.min.js"></script>
+    </body>
+</html>
