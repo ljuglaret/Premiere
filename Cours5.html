@@ -4,15 +4,14 @@
         <title> Cours 5 </title></head>
     <body><textarea theme="Journal">
 
-
-# Manipulation de chaines de caractères
+# Manipulation de chaînes de caracteres
 
 ## Déclaration et initialisation  
 ```java
 String s1 = "ToTo";
 ```
 
-## Conversion vers un tableau de caractères   
+## Conversion vers un tableau de caracteres   
 
 ```java
 class Main {
@@ -30,9 +29,9 @@ class Main {
 ```
 ## Méthodes
 
-- Tester l egalité entre deux chaines de caractères.
-- remplacer tous les caractères d une chaine de caractère par d autres.
-- séparer une chaine de caractères selon un critere.  
+- Tester l egalite entre deux chaines de caracteres.
+- remplacer tous les caracteres d une chaine de caractere par d autres.
+- separer une chaine de caracteres selon un critere.  
 
 
 ## Utilisation
@@ -48,9 +47,9 @@ class Main {
     System.out.println(s1.equals(s2));
     System.out.println(s1.length());
     System.out.println(s1.replace("o","a"));
-    System.out.println(s4.split(" ")[0]);//hello
-    System.out.println(s4.split(" ")[1]);//world
-               
+    System.out.println(s4.split(" ")[0]);
+    System.out.println(s4.split(" ")[1]);
+
 
   }
 }
@@ -59,98 +58,24 @@ class Main {
 ```
 
 
-## Entrainement
+## Entraînement
+
+### Aide   
+
+Isoler une chaine de caractere, rendre son format valide, "transformer" cette chaine de caractere en reel.
+
+```java 
+String s = "bla;bla;bla;bla;4,5;bla";
+String s2 = s.split(";")[4]   // "4,5"
+s2.replace(',', '.') )  ; //     "4.5"
+double  l = Double.parseDouble(s2);   //4.5
+
+
+```
+
+### Lien 
+
 https://www.codingame.com/training/easy/defibrillators
-
-
-# Nouvelles structures
-
-
-## ArrayList
-
-### Déclaration et utilisation 
-
-```java
-
-import java.util.* ;
-class Main{
-    ArrayList<Integer> l = new ArrayList<Integer>();
-    public static void main (String[]args){}
-}
-
-```
-
-### Méthodes
-   
-Ce que les ArrayList font que les tableaux ne font pas :
-- Ajouter une valeur.
-- Supprimer une valeur selon son indice ou selon un condition.
-- Lire un element.
-
-```java
-
-import java.util.* ;
-
-class Main{
-    ArrayList<Integer> li = new ArrayList<Integer>();
-    li.add(4); //li = {4}
-    li.add(2); //li = {4 , 2}
-    li.remove(0); //li = {2}
-    li.add(3);//li = {2,3}
-    li.add(-4);//li = {2,3,-4}
-    li.add(1);//li = {2,3,-4,1}
-     System.out.println(li.get(0));//2
-    li.removeIf(n -> (n >= 2));//li = {-4,1}
-    for (int e : li){
-        System.out.print(e + " ");
-    }
-}
-
-```
-
-### Entrainement
-
-- Exercice 1    
-
-On lance n des m fois, quelle est la probabilité que la somme des n dés soit supérieure ou égale a x.   
-
-Exemple
-
-x = 10
-premier lancer
-4 5 6 = somme = 15
-
-second lancer
-2  3 3 ; somme = 8   
-
-Conclusion :
-Une somme sur deux est inférieure a 15.
-Une somme sur deux est supérieure a 15.
-
-
-- Exercice 2   
-
-https://www.codingame.com/training/easy/temperatures
-
-## HashList
-
-### Ce que c est 
-
-Un liste de (Cles,Valeurs)   
-
-### Exemple    
-   
-```java
- Map<String,String>paysLangue  = new HashMap<String, String>();
-```
-
-Et pour ajouter des paires on utiliser la méthode ##put##
-
-```java
-paysLangue.put("France", "Francais");
-```
-
-# Entrainement
 
 </textarea>
         <script type="text/javascript" src="//lbesson.bitbucket.io/md/strapdown.min.js"></script>
