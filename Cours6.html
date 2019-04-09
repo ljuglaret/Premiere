@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Cours 5 </title></head>
+    <body><textarea theme="Journal">
+
+
+# Nouvelles structures
+
+Pour les utiliser vous aurez besoin des méthodes présentes dans la bibliothèque "import java.util.*;"
+
+## ArrayList
+
+### Déclaration et utilisation 
+
+```java
+
+import java.util.* ;
+class Main{
+    ArrayList<Integer> l = new ArrayList<Integer>();
+    public static void main (String[]args){}
+}
+
+```
+
+### Méthodes
+   
+Ce que les ArrayList font que les tableaux ne font pas :
+- Ajouter une valeur.
+- Supprimer une valeur selon son indice ou selon un condition.
+- Lire un element.
+- Trier 
+- Inverser
+
+```java
+
+import java.util.* ;
+
+class Main{
+    ArrayList<Integer> li = new ArrayList<Integer>();
+    li.add(4); //li = {4}
+    li.add(2); //li = {4 , 2}
+    li.remove(0); //li = {2}
+    li.add(3);//li = {2,3}
+    li.add(-4);//li = {2,3,-4}
+    li.add(1);//li = {2,3,-4,1}
+    li.removeIf(n -> (n >= 2));//li = {-4,1}
+    for (int e : li){
+        System.out.print(e + " ");
+    }
+    Collections.reverse(li); // {1, -4}
+    Collections.sort(li);//{-4 , 1}
+}
+
+```
+
+### Entraînement
+
+- Exercice 1    
+
+On lance n dés m fois, quelle est la probabilité que la somme des n des soit supérieure ou égale à x.   
+
+Exemple
+
+x = 10
+premier lancer
+4 5 6 = somme = 15
+
+second lancer
+2  3 3 ; somme = 8   
+
+Conclusion :
+Une somme sur deux est inférieure à 15.
+Une somme sur deux est supérieure à 15.
+
+
+- Exercice 2   
+
+https://www.codingame.com/training/easy/temperatures
+
+
+
+## HashList
+
+### Ce que c est 
+
+Un liste de (Cles,Valeurs)  dans laquelle chaque clé est unique.
+En effet si l on écrit :
+
+```java
+    paysLangue.put("Suisse", "Francais");
+    paysLangue.put("Suisse", "Anglais");
+    paysLangue.put("Suisse", "Allemand");
+
+
+```
+
+La seule valeur associee a Suisse est Allemand.
+
+
+Seule la dernière valeur sera prise en compte, pour contourner ce problème il faut changer le type de HashMap
+
+```java
+    HashMap<String,List<String>>paysLangue  = new HashMap<String, List<String>>();
+```
+
+### Méthodes
+
+- Vérifier si une clé existe : containsKey
+- Accéder à la valeur d une  clé: get
+- Supprimer une valeur associée à une clé :  remove
+- Lire tous les paires de clés valeurs : entrySet
+
+### Exemple    
+   
+```java
+    HashMap<String,String>paysLangue  = new HashMap<String, String>();
+```
+
+Et pour ajouter des paires on utiliser la méthode put
+
+```java
+    paysLangue.put("France", "Francais");
+    paysLangue.put("Angleterre", "Anglais");
+
+```
+Methodes containsKey et get
+
+```java
+ if (paysLangue.containsKey("France")){
+        System.out.println(paysLangue.get("France"));
+    }
+``` 
+
+Parcours 
+
+```java
+    Set hset1 = paysLangue.entrySet();
+    Iterator iterator = hset1.iterator();
+    while(iterator.hasNext()){
+      System.out.println(iterator.next());
+    }
+
+    // Avec un for : 
+    for(Object stock : hset1){
+        System.out.println(stock);
+     }
+
+```
+
+Récuperer les clés 
+
+```java
+    Set hset2 = paysLangue.keySet();
+    Iterator iterator2 = hset2.iterator();
+    while(iterator2.hasNext()){
+      System.out.println(iterator2.next());
+    }
+
+    // Ou directement
+     for (String i : paysLangue.keySet()) {
+      System.out.println( i );
+    }
+```
+
+### Exercice   
+
+- Ajouter des paires de clés valeurs dans la HashMap "paysLangue".
+
+- Dans une nouvelle HashMap insérer toutes les clés valeurs de la HashMap précedente   
+dont la clé est telle que la première lettre commence par un A.
+
+
+</textarea>
+        <script type="text/javascript" src="//lbesson.bitbucket.io/md/strapdown.min.js"></script>
+    </body>
+</html>
