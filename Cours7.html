@@ -84,11 +84,6 @@ gc1.add(GregorianCalendar.YEAR, 3);//01/03/2003
 Attention cependant, puisque toutes certaines n ont pas de sens ( par exemple 30/02/2010), on genere des exeptions.
 
 ```java
-import java.util.*;
-import java.io.*;
-import java.math.*;
-import java.text.SimpleDateFormat;  
-
 class DiffDates{
 
     public static void diff (String BEGIN,String END)throws Exception  {
@@ -105,25 +100,28 @@ class DiffDates{
 
 
         int nbMois = 0;
-        int DOUZE = 12;
-        int UN = 1;
+       
         while (gc1.before(gc2)) {
-        gc1.add(GregorianCalendar.MONTH, UN);
+        gc1.add(GregorianCalendar.MONTH,1);
         if (gc1.before(gc2) || gc1.equals(gc2)) {
         nbMois++;
     
         }
         }
-        int nbAnnees = (nbMois / DOUZE);
-        nbMois = (nbMois - (nbAnnees * 12));
+        int nbAnnees = nbMois /12;
+        nbMois = nbMois%12;
        
         Calendar gc0 = Calendar.getInstance();
         gc0.setTime(date1);
         gc0.add(GregorianCalendar.YEAR, nbAnnees);
         gc0.add(GregorianCalendar.MONTH, nbMois);
-       int nbJours = (int)( (gc2.getTimeInMillis() - gc0.getTimeInMillis()) / 86400000);
-       
-          String sf = nbAnnees+"annee(s) " + nbMois+" mois " +nbJours+" jours";
+       int nbJours = (int)( (gc2.getTimeInMillis() - gc0.getTimeInMillis()) / (24*60*60*1000));
+        // 1 jour = 24heures
+       //1 heure = 60 minutes
+       //1 minute = 60secondes
+       //1 seconde1000 millisecondes
+
+        String sf = nbAnnees+"annee(s) " + nbMois+" mois " +nbJours+" jours";
         System.out.println(sf);
    }
 
