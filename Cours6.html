@@ -83,7 +83,16 @@ https://www.codingame.com/training/easy/temperatures
 ### Ce que c est 
 
 Un liste de (Cles,Valeurs)  dans laquelle chaque clé est unique.
-En effet si l on écrit :
+
+
+### Pourquoi est ce utile
+
+
+### Attention
+
+Chaque paire ne peut être présente qu'une seule et unique fois.
+
+En effet si l'on écrit :
 
 ```java
     paysLangue.put("Suisse", "Francais");
@@ -93,10 +102,10 @@ En effet si l on écrit :
 
 ```
 
-La seule valeur associee a Suisse est Allemand.
+La seule valeur associée à Suisse est Allemand.
 
 
-Seule la dernière valeur sera prise en compte, pour contourner ce problème il faut changer le type de HashMap
+Seule la dernière valeur sera prise en compte, pour contourner ce problème il faut changer le type de HashMap.
 
 ```java
     HashMap<String,List<String>>paysLangue  = new HashMap<String, List<String>>();
@@ -104,9 +113,10 @@ Seule la dernière valeur sera prise en compte, pour contourner ce problème il 
 
 ### Méthodes
 
-- Vérifier si ue clé existe : containsKey
-- Accéder a un élement selon sa clé: get
-- Supprimer un élement selon sa clé :  remove
+- Vérifier si une clé existe : containsKey
+- Accéder à la valeur d une  clé: get
+- Supprimer une valeur associée à une clé :  remove
+- Lire tous les paires de clés valeurs : entrySet
 
 ### Exemple    
    
@@ -128,6 +138,56 @@ Methodes containsKey et get
         System.out.println(paysLangue.get("France"));
     }
 ``` 
+
+Parcours 
+
+```java
+    Set hset1 = paysLangue.entrySet();
+    Iterator iterator = hset1.iterator();
+    while(iterator.hasNext()){
+      System.out.println(iterator.next());
+    }
+
+    // Avec un for : 
+    for(Object stock : hset1){
+        System.out.println(stock);
+     }
+
+```
+
+Récuperer les clés 
+
+```java
+    Set hset2 = paysLangue.keySet();
+    Iterator iterator2 = hset2.iterator();
+    while(iterator2.hasNext()){
+      System.out.println(iterator2.next());
+    }
+
+    // Ou directement
+     for (String i : paysLangue.keySet()) {
+      System.out.println( i );
+    }
+```
+
+### Exercice   
+
+- Ajouter des paires de clés valeurs dans la HashMap "paysLangue".
+
+- Dans une nouvelle HashMap insérer toutes les clés valeurs de la HashMap précedente   
+dont la clé est telle que la première lettre commence par un A.
+
+### Pour aller plus loin
+
+Ici nous nous interesserons à la simulation d un système de rangement dans lequel les vêtements sont classés par type, par exemple : toutes les chaussettes ensemble, tous les pulls ensemble, etc...
+
+Code : 
+
+Explications 
+
+
+Sur le meme exemple reprendre l exercice précédent et classer chaque paire en fonction de la position dans l alphabet de la première lettre de la clé (ce qui s'approche d un ordre lexicographique).   
+Par exemple les paires ("Angleterre","Anglais") et ("Allemagne","Allemand") seront regroupées et loin de la paire ("Japon","Japonais")
 
 
 
