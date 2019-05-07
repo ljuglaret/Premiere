@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Cours 7 </title></head>
+    <body><textarea theme="Journal">
+# Classe 
+
+## Exemples
+
+### Bibliotheque point
+
+#### Ce que l on peut faire :
+
+- 1 : Créer des points
+
+```java
+        Point p1 = new Point(2,4);
+        Point p2 = new Point(5,8);
+```
+
+- 2 : Etablir facilement une équation de droite
+
+```java
+    public static void eqDroite(Point p1 , Point p2){
+        double a = (double)(p2.y - p1.y) /  (double)(p2.x - p1.x);
+        double b = p1.y - a*p1.x;
+
+        System.out.println(a + "*x" + " + "+b );
+
+    }
+
+        public static void main(String[]args){
+        Point p1 = new Point(2,4);
+        Point p2 = new Point(5,8);
+        //droite d1 : y = ax + b;
+        eqDroite(p1,p2);
+    }
+```
+- 3 : Calculer une distance
+```java 
+    double distP1P2 = p1.distance(p2);
+    System.out.print(distP1P2);
+```
+
+
+NB : Au tout debut du programme : 
+```java
+import java.awt.Point;
+
+```
+
+#### Entrainement 
+L'exercice proposé traite de la nature des quadrilatères.   
+Vous devrez déterminer si il s'agit d un parallélogramme, d'un quadrilatère, d'un rectangle, d'un losange ou d un carré. 
+<a href = https://www.codingame.com/training/easy/nature-of-quadrilaterals> Lien </a>
+
+
+
+### Bibliothèque dates
+
+Pourquoi c'est pratique ? 
+
+Parce que les dates sont des types complexes puisque chaque mois n'a pas le même nombre de jours,
+et les années bissextiles peuvent poser problème.
+La bibliothèque date fournie par java pallie à ces problemes, encore faut il savoir l'utiliser.   
+C'est le but de ce cours.
+
+#### Ce que l'on peut faire :
+- Récuperer la date actuelle.
+- Ajouter 1 ou plusieurs mois à une date.
+- Ajouter 1 ou plusieurs annees à une date.
+
+#### Utilisation
+```java
+String BEGIN = "01/01/2000";
+Date date1=formatter1.parse(transforme(BEGIN));  
+GregorianCalendar gc1 = new GregorianCalendar();
+gc1.setTime(date1);
+gc1.add(GregorianCalendar.MONTH, 2);//01/03/2000
+gc1.add(GregorianCalendar.YEAR, 3);//01/03/2003   
+        
+```
+
+Attention cependant, puisque toutes certaines n ont pas de sens ( par exemple 30/02/2010), on genere des exeptions.
+
+```java
+import java.util.*;
+import java.io.*;
+import java.math.*;
+import java.text.SimpleDateFormat;  
+
+class DiffDates{
+
+    public static void diff (String BEGIN,String END)throws Exception  {
+
+        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");  
+
+        Date date1=formatter1.parse(BEGIN);  
+        Date date2=formatter1.parse(END);  
+        GregorianCalendar gc1 = new GregorianCalendar();
+        gc1.setTime(date1);  
+        GregorianCalendar gc2 = new GregorianCalendar();
+        gc2.setTime(date2);
+
+
+
+        int nbMois = 0;
+        int DOUZE = 12;
+        int UN = 1;
+        while (gc1.before(gc2)) {
+        gc1.add(GregorianCalendar.MONTH, UN);
+        if (gc1.before(gc2) || gc1.equals(gc2)) {
+        nbMois++;
+    
+        }
+        }
+        int nbAnnees = (nbMois / DOUZE);
+        nbMois = (nbMois - (nbAnnees * 12));
+       
+        Calendar gc0 = Calendar.getInstance();
+        gc0.setTime(date1);
+        gc0.add(GregorianCalendar.YEAR, nbAnnees);
+        gc0.add(GregorianCalendar.MONTH, nbMois);
+       int nbJours = (int)( (gc2.getTimeInMillis() - gc0.getTimeInMillis()) / 86400000);
+       
+          String sf = nbAnnees+"annee(s) " + nbMois+" mois " +nbJours+" jours";
+        System.out.println(sf);
+   }
+
+
+public static void main(String args[]) throws Exception  {
+        String BEGIN = "14/07/1991"; 
+        String END = "07/05/2014";
+
+        GregorianCalendar actu =new GregorianCalendar();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateDate = actu.getTime();
+        String retour = dateFormat.format(dateDate);
+
+        diff(BEGIN,END);
+        diff(BEGIN,retour);
+        
+        
+        }
+}
+```
+
+</textarea>
+        <script type="text/javascript" src="//lbesson.bitbucket.io/md/strapdown.min.js"></script>
+    </body>
+</html>
