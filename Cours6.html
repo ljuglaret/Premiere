@@ -238,6 +238,66 @@ Le type sera donc
     HashMap<Integer,List<String>>m  = new HashMap<Integer,List<String>>();
 ```
 
+indications 
+```java
+   class Player {
+
+
+    public static String dirige(Map<Integer,List<String>>dirSuiv, String Pos,int key){
+            String c = "D";
+            for (Map.Entry<Integer, List<String>> entry : dirSuiv.entrySet()) {
+            List<String> values = entry.getValue();
+            //En fonction de la valeur de la clef et du positionnement de l entree
+            // renvoyer le(s) positionnement(s) de la sortie
+            }
+        return c;
+        }
+
+    
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int W = in.nextInt(); // number of columns.
+        int H = in.nextInt(); // number of rows.
+        if (in.hasNextLine()) {
+            in.nextLine();
+        }
+        
+        
+            int LINE[][] = new int[H][W];
+            for (int i = 0; i < H; i++) {
+            for (int j = 0; j < W; j++) {
+                try {LINE[i][j] = in.nextInt();} 
+                catch (Exception e) {}
+            }
+        }
+        
+
+        int EX = in.nextInt(); // the coordinate along the X axis of the exit (not useful for this first mission, but must be read).
+        
+        Map<Integer,List<String>>dirSuiv  = new HashMap<Integer, List<String>>();
+         
+         //remplir la map avec les valeurs fournies dans l enonce
+
+
+        // game loop
+        while (true) {
+            int XI = in.nextInt();
+            int YI = in.nextInt();
+            String POS = in.next();
+
+            String x = dirige(dirSuiv,POS,LINE[YI][XI]);
+           
+           //Completer en fonction des valeurs possibles de x (switch case)
+           
+            System.out.println(XI+" "+YI);
+
+        }
+    }
+}     
+```
+        
+        
+        
 </textarea>
         <script type="text/javascript" src="//lbesson.bitbucket.io/md/strapdown.min.js"></script>
     </body>
