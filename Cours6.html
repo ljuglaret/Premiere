@@ -172,7 +172,7 @@ Récuperer les clés
 
 ### Pour aller plus loin
 
-Que peut on faire une fois arriver la?
+Que peut on faire une fois arriver là?
 
 
 Par exemple, on peut classer chaque paire selon l ordre lexicographique des clefs.   
@@ -180,17 +180,14 @@ Pour comprendre le fonctionnement regardons un cas particulier avec la lettre A.
 
 ```java
 
+    public static void lettreA(HashMap<String,String> paysLangue){
     HashMap<String,String>paysLangueA  = new HashMap<String, String>();
     for (String i : paysLangue.keySet()) {
         if(i.charAt(0)== 'A'){
             paysLangueA.put(i,paysLangue.get(i));
         }
       }
-
-    Set hsetA = paysLangueA.entrySet();
-    System.out.println("lettre A  :");
-    for(Object stock : hsetA){
-        System.out.println(stock);
+      System.out.println(paysLangueA);
     }
 ```
 
@@ -204,23 +201,20 @@ int x   = (int)A - 65; // x = 65 - 65 = 0
 
 ```java
 
+    public static void general(HashMap<String,String> paysLangue){
      List<Map<String,String>>paysLangueClassement  = new ArrayList<Map<String,String>>();
-     for(int k = 0 ; k < 26 ; k++){
+     for(int k = 0 ; k < 25 ; k++){
+        Map<String,String> m = new HashMap<String,String>();
      for (String i : paysLangue.keySet()) {
         if((int)i.charAt(0) - 65 == k){
-            Map<String,String> m = new HashMap<String,String>();
             m.put(i,paysLangue.get(i));
-            paysLangueClassement.add(m);
         }
       }
+      paysLangueClassement.add(k,m);
+      System.out.print(paysLangueClassement.get(k));
     }
-
-    for (Map<String,String> m : paysLangueClassement){
-        System.out.print( m );
     }
-
 ```
-
 
 ### Cas plus complexe 
 
