@@ -5,7 +5,11 @@
     <body><textarea theme="Journal">
 # Nouvelles structures
 
-Pour les utiliser vous aurez besoin des méthodes présentes dans la bibliothèque "import java.util.*;"
+Pour les utiliser vous aurez besoin des méthodes présentes dans la bibliothèque util de java
+
+```java
+import java.util.*;
+```
 
 ## ArrayList
 
@@ -20,56 +24,6 @@ class Main{
 }
 
 ```
-
-        
-## Solution 
-```java
-import java.util.*;
-import java.io.*;
-import java.math.*;
-
-/**
- * The while loop represents the game.
- * Each iteration represents a turn of the game
- * where you are given inputs (the heights of the mountains)
- * and where you have to print an output (the index of the mountain to fire on)
- * The inputs you are given are automatically updated according to your last actions.
- **/
-class Player {
-
-
-   public static int maxi(List<Integer> t) {
-        int m = t.get(0);
-        int ind = 0 ;
-        for(int i= 0 ; i< t.size(); i++) {
-            if (t.get(i)>m){
-                m=t.get(i);
-                ind = i;
-            }
-        }
-        return ind;
-    }
-
-    public static void main(String args[]) {
-        Scanner in = new Scanner(System.in);
-
-        // game loop
-        while (true) {
-                    List<Integer> tour =  new ArrayList<Integer>() ;
-
-            for (int i = 0; i < 8; i++) {
-                int mountainH = in.nextInt(); // represents the height of one mountain.
-                tour.add(mountainH);
-            }
-
-            // Write an action using System.out.println()
-            // To debug: System.err.println("Debug messages...");
-
-            System.out.println(maxi(tour)); // The index of the mountain to fire on.
-        }
-    }
-}
- ```
 
 ### Méthodes
    
@@ -124,15 +78,15 @@ Une somme sur deux est supérieure à 15.
 
 - Exercice 2   
 
-https://www.codingame.com/training/easy/temperatures
+<a href = https://www.codingame.com/training/easy/temperatures> Lien </a>
 
 
 
 ## HashMap
 
-### Ce que c est 
+### Ce que c'est 
 
-Un liste de (Cles,Valeurs)  dans laquelle chaque clé est unique.
+Une association de paires (Cles,Valeurs)  dans laquelle chaque clé est unique.
 
 
 ### Pourquoi est ce utile
@@ -148,18 +102,12 @@ En effet si l'on écrit :
     paysLangue.put("Suisse", "Francais");
     paysLangue.put("Suisse", "Anglais");
     paysLangue.put("Suisse", "Allemand");
-
-
 ```
 
 La seule valeur associée à Suisse est Allemand.
 
 
-Seule la dernière valeur sera prise en compte, pour contourner ce problème il faut changer le type de HashMap.
-
-```java
-    HashMap<String,List<String>>paysLangue  = new HashMap<String, List<String>>();
-```
+Seule la dernière valeur sera prise en compte, pour contourner ce problème il faudra changer le type de HashMap, ce cas sera traite ulterieurement.
 
 ### Méthodes
 
@@ -174,7 +122,7 @@ Seule la dernière valeur sera prise en compte, pour contourner ce problème il 
     HashMap<String,String>paysLangue  = new HashMap<String, String>();
 ```
 
-Et pour ajouter des paires on utiliser la méthode put
+Et pour ajouter des paires on utilise la méthode put
 
 ```java
     paysLangue.put("France", "Francais");
@@ -220,11 +168,79 @@ Récuperer les clés
     }
 ```
 
-### Exercice   
+### Pour aller plus loin
 
-<a href = "https://repl.it/@ljuglaret/Pays" > Lien </a>
-  Entrainement :
-        <a href = "https://www.codingame.com/ide/puzzle/the-last-crusade-episode-1">Lien  </a>
+Que peut on faire une fois arriver la?
+
+
+Par exemple, on peut classer chaque paire selon l ordre lexicographique des clefs.   
+Pour comprendre le fonctionnement regardons un cas particulier avec la lettre A.
+
+```java
+
+    HashMap<String,String>paysLangueA  = new HashMap<String, String>();
+    for (String i : paysLangue.keySet()) {
+        if(i.charAt(0)== 'A'){
+            paysLangueA.put(i,paysLangue.get(i));
+        }
+      }
+
+    Set hsetA = paysLangueA.entrySet();
+    System.out.println("lettre A  :");
+    for(Object stock : hsetA){
+        System.out.println(stock);
+    }
+```
+
+Maintenant géneralisons.   
+Pour simplifier nous allons remplacer chaque lettre par sa position dans l'alphabet :
+```java
+char A  = 'A';
+int x   = (int)A - 65; // x = 65 - 65 = 0 
+```
+
+
+```java
+
+     List<Map<String,String>>paysLangueClassement  = new ArrayList<Map<String,String>>();
+     for(int k = 0 ; k < 26 ; k++){
+     for (String i : paysLangue.keySet()) {
+        if((int)i.charAt(0) - 65 == k){
+            Map<String,String> m = new HashMap<String,String>();
+            m.put(i,paysLangue.get(i));
+            paysLangueClassement.add(m);
+        }
+      }
+    }
+
+    for (Map<String,String> m : paysLangueClassement){
+        System.out.print( m );
+    }
+
+```
+
+
+### Cas plus complexe 
+
+Pour le moment nous nous sommes limités a des HashMap de type <Type1, Type1>,
+mais on peut aussi utiliser des types plus complexes comme <Type1, List<Type2>>.
+
+Precédemment nous nous étions demandés comment gérer le cas dans lequel plusieurs langues étaient parlées dans un pays.
+
+
+```java
+    HashMap<String,List<String>>m = new HashMap<String, List<String>>();
+    m.put("Suiss",Arrays.asList("Anglais", "Francais", "Allemand"));
+```
+
+### Application
+<a href = the last crusade> Lien </a>   
+Il s agit d'associer à un entier ( représentant le numéro de la pierre) la liste des sorties possibles correspondantes.
+
+Le type sera donc 
+```java
+    HashMap<Integer,List<String>>m  = new HashMap<Integer,List<String>>();
+```
 
 </textarea>
         <script type="text/javascript" src="//lbesson.bitbucket.io/md/strapdown.min.js"></script>
